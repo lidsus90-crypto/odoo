@@ -6,7 +6,7 @@
     'author': 'LeadSolutions Cia. Ltda.',
     'website': 'https://lidsus.com/',
     'support': 'info@leadsolutions.ec',
-    'license': 'LGPL-3',
+    'license': 'OPL-1',
     'price': 0,
     'currency': 'USD',
     'summary': 'Integración Laundry EC con la localización ecuatoriana (l10n_ec_edi)',
