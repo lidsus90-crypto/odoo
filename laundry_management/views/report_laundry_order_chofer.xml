@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_laundry_order_chofer" model="ir.actions.report">
+        <field name="name">Orden de Servicio (Chófer)</field>
+        <field name="model">laundry.management</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">laundry_management.report_laundry_order_chofer_doc</field>
+        <field name="report_file">laundry_management.report_laundry_order_chofer_doc</field>
+        <field name="binding_model_id" ref="model_laundry_management"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_laundry_order_chofer_doc">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Hoja de Ruta - Orden:
+                            <span t-field="o.tag_asignado"/>
+                        </h2>
+                        <div class="row mt16">
+                            <div class="col-6">
+                                <strong>Cliente:</strong>
+                                <span t-field="o.partner_id.name"/>
+                                <br/>
+                                <strong>Dirección:</strong>
+                                <span t-field="o.partner_id.street"/>,
+                                <span t-field="o.partner_id.city"/>
+                            </div>
+                            <div class="col-6">
+                                <strong>Fecha Recepción:</strong>
+                                <span t-field="o.clean_start_time"/>
+                                <br/>
+                                <strong>Fecha Entrega:</strong>
+                                <span t-field="o.clean_end_time"/>
+                                <br/>
+                                <strong>Total Prendas:</strong>
+                                <span t-field="o.total_prendas"/>
+                            </div>
+                        </div>
+                        <table class="table table-sm mt16">
+                            <thead>
+                                <tr>
+                                    <th>Prenda</th>
+                                    <th>Color</th>
+                                    <th>Cant.</th>
+                                    <th>Observación</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o.service_lines" t-as="line">
+                                    <tr>
+                                        <td>
+                                            <span t-field="line.product_id.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.color"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.product_uom_qty"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.observacion"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

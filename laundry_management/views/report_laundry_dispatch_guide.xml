@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_laundry_dispatch_guide" model="ir.actions.report">
+        <field name="name">Guía de Despacho</field>
+        <field name="model">laundry.dispatch.guide</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">laundry_management.report_laundry_dispatch_guide_doc</field>
+        <field name="report_file">laundry_management.report_laundry_dispatch_guide_doc</field>
+        <field name="binding_model_id" ref="model_laundry_dispatch_guide"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_laundry_dispatch_guide_doc">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Guía de Despacho:
+                            <span t-field="o.codigo_auto"/>
+                        </h2>
+                        <div class="row mt16">
+                            <div class="col-6">
+                                <strong>Origen (Planta):</strong>
+                                <span t-field="o.planta_id.name"/>
+                                <br/>
+                                <strong>Destino:</strong>
+                                <span t-field="o.company_id.name"/>
+                                <br/>
+                                <strong>Transportista:</strong>
+                                <span t-field="o.partner_id.name"/>
+                            </div>
+                            <div class="col-6">
+                                <strong>Fecha Despacho:</strong>
+                                <span t-field="o.fecha_recepcion"/>
+                                <br/>
+                                <strong>Fecha Recepción:</strong>
+                                <span t-field="o.fecha_entrega"/>
+                                <br/>
+                                <strong>Total Prendas:</strong>
+                                <span t-field="o.num_prendas_gd"/>
+                            </div>
+                        </div>
+                        <table class="table table-sm mt16">
+                            <thead>
+                                <tr>
+                                    <th>Orden Nº</th>
+                                    <th>Reclamo</th>
+                                    <th>Guía Entrega</th>
+                                    <th>Punto Atención</th>
+                                    <th>Prendas</th>
+                                    <th>Total</th>
+                                    <th>Observación</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o.despacho_lines" t-as="line">
+                                    <tr>
+                                        <td>
+                                            <span t-field="line.service_order_id.tag_asignado"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.service_claim_id.codigo_orden_reclamo"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.ge_id"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.company_id.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.num_prendas"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.total"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.observacion"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

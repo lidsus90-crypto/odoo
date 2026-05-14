@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Laundry EC: datos de prueba. Solo se cargan en modo demo. -->
+    <data noupdate="1">
+
+        <!-- Clientes demo -->
+
+        <record id="demo_partner_01" model="res.partner">
+            <field name="name">María González</field>
+            <field name="email">maria.gonzalez@demo.ec</field>
+            <field name="phone">0991234501</field>
+            <field name="street">Av. Amazonas 123</field>
+            <field name="city">Quito</field>
+            <field name="country_id" ref="base.ec"/>
+            <field name="customer_rank">1</field>
+        </record>
+
+        <record id="demo_partner_02" model="res.partner">
+            <field name="name">Carlos Suárez</field>
+            <field name="email">carlos.suarez@demo.ec</field>
+            <field name="phone">0987654321</field>
+            <field name="street">Calle Guayaquil 456</field>
+            <field name="city">Guayaquil</field>
+            <field name="country_id" ref="base.ec"/>
+            <field name="customer_rank">1</field>
+        </record>
+
+        <record id="demo_partner_03" model="res.partner">
+            <field name="name">Hotel Los Andes</field>
+            <field name="email">lavanderia@hotellosandes.ec</field>
+            <field name="phone">022345678</field>
+            <field name="street">Av. 6 de Diciembre 789</field>
+            <field name="city">Quito</field>
+            <field name="country_id" ref="base.ec"/>
+            <field name="customer_rank">1</field>
+            <field name="is_company">1</field>
+        </record>
+
+        <!-- Productos / Prendas demo -->
+
+        <record id="demo_product_camisa" model="product.template">
+            <field name="name">Camisa</field>
+            <field name="type">service</field>
+            <field name="list_price">2.50</field>
+            <field name="laundry">1</field>
+            <field name="tiempo">1</field>
+            <field name="num_prendas_servicio">1</field>
+            <field name="categ_id" ref="laundry_configuration.product_category_laundry"/>
+        </record>
+
+        <record id="demo_product_pantalon" model="product.template">
+            <field name="name">Pantalón</field>
+            <field name="type">service</field>
+            <field name="list_price">3.00</field>
+            <field name="laundry">1</field>
+            <field name="tiempo">1</field>
+            <field name="num_prendas_servicio">1</field>
+            <field name="categ_id" ref="laundry_configuration.product_category_laundry"/>
+        </record>
+
+        <record id="demo_product_vestido" model="product.template">
+            <field name="name">Vestido</field>
+            <field name="type">service</field>
+            <field name="list_price">4.50</field>
+            <field name="laundry">1</field>
+            <field name="tiempo">2</field>
+            <field name="num_prendas_servicio">1</field>
+            <field name="categ_id" ref="laundry_configuration.product_category_laundry"/>
+        </record>
+
+        <record id="demo_product_sabana" model="product.template">
+            <field name="name">Sábana</field>
+            <field name="type">service</field>
+            <field name="list_price">5.00</field>
+            <field name="laundry">1</field>
+            <field name="tiempo">2</field>
+            <field name="num_prendas_servicio">1</field>
+            <field name="categ_id" ref="laundry_configuration.product_category_laundry"/>
+        </record>
+
+        <record id="demo_product_abrigo" model="product.template">
+            <field name="name">Abrigo</field>
+            <field name="type">service</field>
+            <field name="list_price">8.00</field>
+            <field name="laundry">1</field>
+            <field name="tiempo">3</field>
+            <field name="num_prendas_servicio">1</field>
+            <field name="categ_id" ref="laundry_configuration.product_category_laundry"/>
+        </record>
+
+        <record id="demo_product_traje" model="product.template">
+            <field name="name">Traje de Baño</field>
+            <field name="type">service</field>
+            <field name="list_price">3.50</field>
+            <field name="laundry">1</field>
+            <field name="tiempo">1</field>
+            <field name="num_prendas_servicio">1</field>
+            <field name="categ_id" ref="laundry_configuration.product_category_laundry"/>
+        </record>
+
+        <!-- Órdenes de servicio demo -->
+
+        <record id="demo_order_01" model="laundry.management">
+            <field name="partner_id" ref="demo_partner_01"/>
+            <field name="codigo_orden_servicio">ETQ-001</field>
+            <field name="clean_start_time">2026-04-20 09:00:00</field>
+            <field name="state">ready</field>
+            <field name="porcentaje_iva_aplicado">iva12</field>
+            <field name="informacion">Cliente solicita trato delicado en prendas de color.</field>
+            <field name="service_lines" eval="[
+                (0, 0, {
+                    'name': 'Camisa',
+                    'product_uom_qty': 3,
+                    'price_unit': 2.50,
+                    'color': 'white',
+                }),
+                (0, 0, {
+                    'name': 'Pantalón',
+                    'product_uom_qty': 2,
+                    'price_unit': 3.00,
+                    'color': 'blue',
+                }),
+            ]"/>
+        </record>
+
+        <record id="demo_order_02" model="laundry.management">
+            <field name="partner_id" ref="demo_partner_02"/>
+            <field name="codigo_orden_servicio">ETQ-002</field>
+            <field name="clean_start_time">2026-04-22 10:30:00</field>
+            <field name="state">in_process</field>
+            <field name="porcentaje_iva_aplicado">iva12</field>
+            <field name="informacion">Lavado urgente, entregar en 24 horas.</field>
+            <field name="service_lines" eval="[
+                (0, 0, {
+                    'name': 'Abrigo',
+                    'product_uom_qty': 1,
+                    'price_unit': 8.00,
+                    'color': 'black',
+                }),
+                (0, 0, {
+                    'name': 'Vestido',
+                    'product_uom_qty': 2,
+                    'price_unit': 4.50,
+                    'color': 'red',
+                }),
+            ]"/>
+        </record>
+
+        <record id="demo_order_03" model="laundry.management">
+            <field name="partner_id" ref="demo_partner_03"/>
+            <field name="codigo_orden_servicio">ETQ-003</field>
+            <field name="clean_start_time">2026-04-25 08:00:00</field>
+            <field name="state">received</field>
+            <field name="porcentaje_iva_aplicado">iva12</field>
+            <field name="informacion">Pedido corporativo Hotel Los Andes - lote sábanas.</field>
+            <field name="service_lines" eval="[
+                (0, 0, {
+                    'name': 'Sábana',
+                    'product_uom_qty': 20,
+                    'price_unit': 5.00,
+                    'color': 'white',
+                }),
+                (0, 0, {
+                    'name': 'Camisa (uniforme)',
+                    'product_uom_qty': 10,
+                    'price_unit': 2.50,
+                    'color': 'white',
+                }),
+            ]"/>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="product_category_laundry" model="product.category">
+            <field name="name">Servicios de Lavandería</field>
+            <field name="isservicetype">1</field>
+        </record>
+
+        <record id="product_category_laundry_ropa" model="product.category">
+            <field name="name">Ropa</field>
+            <field name="parent_id" ref="product_category_laundry"/>
+            <field name="isservicetype">1</field>
+        </record>
+
+        <record id="product_category_laundry_hogar" model="product.category">
+            <field name="name">Hogar y Textiles</field>
+            <field name="parent_id" ref="product_category_laundry"/>
+            <field name="isservicetype">1</field>
+        </record>
+
+        <record id="product_category_laundry_corporativo" model="product.category">
+            <field name="name">Corporativo / Uniformes</field>
+            <field name="parent_id" ref="product_category_laundry"/>
+            <field name="isservicetype">1</field>
+        </record>
+
+    </data>
+</odoo>

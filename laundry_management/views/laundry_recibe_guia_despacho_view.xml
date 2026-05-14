@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_laundry_recibe_dispatch_guide_form" model="ir.ui.view">
+        <field name="name">laundry.dispatch.guide.recibe.form</field>
+        <field name="model">laundry.dispatch.guide</field>
+        <field name="arch" type="xml">
+            <form string="Recibir Guía de Despacho">
+                <header>
+                    <button name="confirmar" string="Confirmar Recepción"
+                            type="object" class="oe_highlight"
+                            invisible="state != 'send'"/>
+
+                    <button name="recibir" string="Recibir Pendientes"
+                            type="object"
+                            invisible="state != 'partial'"/>
+
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,send,partial,recept"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="codigo_auto"/>
+                        <h1>
+                            <field name="codigo_auto" readonly="True"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="main_info">
+                            <field name="planta_id" readonly="True"/>
+                            <field name="company_id" groups="base.group_multi_company" readonly="True"/>
+                            <field name="partner_id" readonly="True" widget="res_partner_many2one"/>
+                        </group>
+                        <group name="stats_info">
+                            <field name="fecha_recepcion" readonly="True"/>
+                            <field name="fecha_entrega" readonly="True"/>
+                            <field name="num_prendas_gd" readonly="True" decoration-bf="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Líneas de Despacho" name="lines">
+                            <field name="despacho_lines" readonly="state == 'recept'">
+                                <list editable="bottom">
+                                    <field name="service_order_id" readonly="True"/>
+                                    <field name="ge_id" readonly="True"/>
+                                    <field name="num_prendas" readonly="True" sum="Total"/>
+                                    <field name="total" readonly="True" widget="monetary"/>
+                                    <field name="check" widget="boolean_toggle"/>
+                                    <field name="partial" readonly="True" widget="boolean_toggle"/>
+                                    <field name="observacion" placeholder="Notas de recepción..."/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter reload_on_post="True"/>
+            </form>
+        </field>
+    </record>
+    <record id="action_laundry_recibe_dispatch_guide" model="ir.actions.act_window">
+        <field name="name">Recibir Guías de Despacho</field>
+        <field name="res_model">laundry.dispatch.guide</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_ids"
+               eval="[(5,0,0),(0,0,{'view_mode':'form','view_id':ref('view_laundry_recibe_dispatch_guide_form')})]"/>
+        <field name="domain">[('state','in',['send','partial'])]</field>
+    </record>
+</odoo>

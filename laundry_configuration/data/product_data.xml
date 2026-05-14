@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ══════════════════════════════════════════════════════════════
+             Ropa personal
+        ══════════════════════════════════════════════════════════════ -->
+
+        <record id="product_camisa" model="product.template">
+            <field name="name">Camisa</field>
+            <field name="default_code">LAV-CMS</field>
+            <field name="l10n_ec_auxiliary_code">AUX-3741</field>
+            <field name="type">service</field>
+            <field name="list_price">2.50</field>
+            <field name="laundry">1</field>
+            <field name="method_id" ref="method_delicado"/>
+            <field name="tiempo">1</field>
+            <field name="num_prendas_servicio">1</field>
+            <field name="categ_id" ref="product_category_laundry_ropa"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+
+        <record id="product_camiseta" model="product.template">
+            <field name="name">Camiseta</field>
+            <field name="default_code">LAV-CMT</field>
+            <field name="l10n_ec_auxiliary_code">AUX-5829</field>
+            <field name="type">service</field>
+            <field name="list_price">1.50</field>
+            <field name="laundry">1</field>
+            <field name="method_id" ref="method_normal"/>
+            <field name="tiempo">1</field>
+            <field name="num_prendas_servicio">1</field>
+            <field name="categ_id" ref="product_category_laundry_ropa"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+
+        <record id="product_pantalon" model="product.template">
+            <field name="name">Pantalón</field>
+            <field name="default_code">LAV-PAN</field>
+            <field name="l10n_ec_auxiliary_code">AUX-1064</field>
+            <field name="type">service</field>
+            <field name="list_price">3.00</field>
+            <field name="laundry">1</field>
+            <field name="method_id" ref="method_normal"/>
+            <field name="tiempo">1</field>
+            <field name="num_prendas_servicio">1</field>
+            <field name="categ_id" ref="product_category_laundry_ropa"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+
+        <record id="product_vestido" model="product.template">
+            <field name="name">Vestido</field>
+            <field name="default_code">LAV-VES</field>
+            <field name="l10n_ec_auxiliary_code">AUX-7312</field>
+            <field name="type">service</field>
+            <field name="list_price">4.50</field>
+            <field name="laundry">1</field>
+            <field name="method_id" ref="method_delicado"/>
+            <field name="tiempo">2</field>
+            <field name="num_prendas_servicio">1</field>
+            <field name="categ_id" ref="product_category_laundry_ropa"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+
+        <record id="product_falda" model="product.template">
+            <field name="name">Falda</field>
+            <field name="default_code">LAV-FAL</field>
+            <field name="l10n_ec_auxiliary_code">AUX-2958</field>
+            <field name="type">service</field>
+            <field name="list_price">3.00</field>
+            <field name="laundry">1</field>
+            <field name="method_id" ref="method_delicado"/>
+            <field name="tiempo">1</field>
+            <field name="num_prendas_servicio">1</field>
+            <field name="categ_id" ref="product_category_laundry_ropa"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+
+        <record id="product_abrigo" model="product.template">
+            <field name="name">Abrigo</field>
+            <field name="default_code">LAV-ABR</field>
+            <field name="l10n_ec_auxiliary_code">AUX-6473</field>
+            <field name="type">service</field>
+            <field name="list_price">8.00</field>
+            <field name="laundry">1</field>
+            <field name="method_id" ref="method_seco"/>
+            <field name="tiempo">3</field>
+            <field name="num_prendas_servicio">1</field>
+            <field name="categ_id" ref="product_category_laundry_ropa"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+
+        <record id="product_chaqueta" model="product.template">
+            <field name="name">Chaqueta / Casaca</field>
+            <field name="default_code">LAV-CHA</field>
+            <field name="l10n_ec_auxiliary_code">AUX-8901</field>
+            <field name="type">service</field>
+            <field name="list_price">5.00</field>
+            <field name="laundry">1</field>
+            <field name="method_id" ref="method_seco"/>
+            <field name="tiempo">2</field>
+            <field name="num_prendas_servicio">1</field>
+            <field name="categ_id" ref="product_category_laundry_ropa"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+
+        <record id="product_traje_completo" model="product.template">
+            <field name="name">Traje Completo (saco + pantalón)</field>
+            <field name="default_code">LAV-TRA</field>
+            <field name="l10n_ec_auxiliary_code">AUX-4256</field>
+            <field name="type">service</field>
+            <field name="list_price">10.00</field>
+            <field name="laundry">1</field>
+            <field name="method_id" ref="method_seco"/>
+            <field name="tiempo">3</field>
+            <field name="num_prendas_servicio">2</field>
+            <field name="categ_id" ref="product_category_laundry_ropa"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+
+        <record id="product_corbata" model="product.template">
+            <field name="name">Corbata</field>
+            <field name="default_code">LAV-COR</field>
+            <field name="l10n_ec_auxiliary_code">AUX-3087</field>
+            <field name="type">service</field>
+            <field name="list_price">2.00</field>
+            <field name="laundry">1</field>
+            <field name="method_id" ref="method_seco"/>
+            <field name="tiempo">1</field>
+            <field name="num_prendas_servicio">1</field>
+            <field name="categ_id" ref="product_category_laundry_ropa"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+
+        <record id="product_ropa_interior" model="product.template">
+            <field name="name">Ropa Interior</field>
+            <field name="default_code">LAV-RIN</field>
+            <field name="l10n_ec_auxiliary_code">AUX-5614</field>
+            <field name="type">service</field>
+            <field name="list_price">1.00</field>
+            <field name="laundry">1</field>
+            <field name="method_id" ref="method_delicado"/>
+            <field name="tiempo">1</field>
+            <field name="num_prendas_servicio">1</field>
+            <field name="categ_id" ref="product_category_laundry_ropa"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+
+        <!-- ══════════════════════════════════════════════════════════════
+             Hogar y textiles
+        ══════════════════════════════════════════════════════════════ -->
+
+        <record id="product_sabana_simple" model="product.template">
+            <field name="name">Sábana Simple</field>
+            <field name="default_code">LAV-SBS</field>
+            <field name="l10n_ec_auxiliary_code">AUX-7039</field>
+            <field name="type">service</field>
+            <field name="list_price">4.00</field>
+            <field name="laundry">1</field>
+            <field name="method_id" ref="method_industrial"/>
+            <field name="tiempo">2</field>
+            <field name="num_prendas_servicio">1</field>
+            <field name="categ_id" ref="product_category_laundry_hogar"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+
+        <record id="product_sabana_doble" model="product.template">
+            <field name="name">Sábana Doble</field>
+            <field name="default_code">LAV-SBD</field>
+            <field name="l10n_ec_auxiliary_code">AUX-2481</field>
+            <field name="type">service</field>
+            <field name="list_price">5.50</field>
+            <field name="laundry">1</field>
+            <field name="method_id" ref="method_industrial"/>
+            <field name="tiempo">2</field>
+            <field name="num_prendas_servicio">1</field>
+            <field name="categ_id" ref="product_category_laundry_hogar"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+
+        <record id="product_toalla" model="product.template">
+            <field name="name">Toalla</field>
+            <field name="default_code">LAV-TOA</field>
+            <field name="l10n_ec_auxiliary_code">AUX-9167</field>
+            <field name="type">service</field>
+            <field name="list_price">2.50</field>
+            <field name="laundry">1</field>
+            <field name="method_id" ref="method_normal"/>
+            <field name="tiempo">1</field>
+            <field name="num_prendas_servicio">1</field>
+            <field name="categ_id" ref="product_category_laundry_hogar"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+
+        <record id="product_mantel" model="product.template">
+            <field name="name">Mantel</field>
+            <field name="default_code">LAV-MAN</field>
+            <field name="l10n_ec_auxiliary_code">AUX-3528</field>
+            <field name="type">service</field>
+            <field name="list_price">3.50</field>
+            <field name="laundry">1</field>
+            <field name="method_id" ref="method_normal"/>
+            <field name="tiempo">1</field>
+            <field name="num_prendas_servicio">1</field>
+            <field name="categ_id" ref="product_category_laundry_hogar"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+
+        <record id="product_cortina" model="product.template">
+            <field name="name">Cortina</field>
+            <field name="default_code">LAV-CRT</field>
+            <field name="l10n_ec_auxiliary_code">AUX-6842</field>
+            <field name="type">service</field>
+            <field name="list_price">7.00</field>
+            <field name="laundry">1</field>
+            <field name="method_id" ref="method_delicado"/>
+            <field name="tiempo">3</field>
+            <field name="num_prendas_servicio">1</field>
+            <field name="categ_id" ref="product_category_laundry_hogar"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+
+        <record id="product_edredon" model="product.template">
+            <field name="name">Edredón / Cobija</field>
+            <field name="default_code">LAV-EDR</field>
+            <field name="l10n_ec_auxiliary_code">AUX-1395</field>
+            <field name="type">service</field>
+            <field name="list_price">9.00</field>
+            <field name="laundry">1</field>
+            <field name="method_id" ref="method_industrial"/>
+            <field name="tiempo">3</field>
+            <field name="num_prendas_servicio">1</field>
+            <field name="categ_id" ref="product_category_laundry_hogar"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+
+        <record id="product_almohada" model="product.template">
+            <field name="name">Almohada</field>
+            <field name="default_code">LAV-ALM</field>
+            <field name="l10n_ec_auxiliary_code">AUX-7263</field>
+            <field name="type">service</field>
+            <field name="list_price">4.00</field>
+            <field name="laundry">1</field>
+            <field name="method_id" ref="method_normal"/>
+            <field name="tiempo">2</field>
+            <field name="num_prendas_servicio">1</field>
+            <field name="categ_id" ref="product_category_laundry_hogar"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+
+        <!-- ══════════════════════════════════════════════════════════════
+             Corporativo / Uniformes
+        ══════════════════════════════════════════════════════════════ -->
+
+        <record id="product_uniforme_camisa" model="product.template">
+            <field name="name">Uniforme - Camisa</field>
+            <field name="default_code">LAV-UCM</field>
+            <field name="l10n_ec_auxiliary_code">AUX-4709</field>
+            <field name="type">service</field>
+            <field name="list_price">2.00</field>
+            <field name="laundry">1</field>
+            <field name="method_id" ref="method_normal"/>
+            <field name="tiempo">1</field>
+            <field name="num_prendas_servicio">1</field>
+            <field name="categ_id" ref="product_category_laundry_corporativo"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+
+        <record id="product_uniforme_pantalon" model="product.template">
+            <field name="name">Uniforme - Pantalón</field>
+            <field name="default_code">LAV-UPN</field>
+            <field name="l10n_ec_auxiliary_code">AUX-8134</field>
+            <field name="type">service</field>
+            <field name="list_price">2.50</field>
+            <field name="laundry">1</field>
+            <field name="method_id" ref="method_normal"/>
+            <field name="tiempo">1</field>
+            <field name="num_prendas_servicio">1</field>
+            <field name="categ_id" ref="product_category_laundry_corporativo"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+
+        <record id="product_bata_medica" model="product.template">
+            <field name="name">Bata Médica</field>
+            <field name="default_code">LAV-BAT</field>
+            <field name="l10n_ec_auxiliary_code">AUX-5672</field>
+            <field name="type">service</field>
+            <field name="list_price">3.50</field>
+            <field name="laundry">1</field>
+            <field name="method_id" ref="method_vapor"/>
+            <field name="tiempo">2</field>
+            <field name="num_prendas_servicio">1</field>
+            <field name="categ_id" ref="product_category_laundry_corporativo"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+
+        <record id="product_delantal" model="product.template">
+            <field name="name">Delantal</field>
+            <field name="default_code">LAV-DEL</field>
+            <field name="l10n_ec_auxiliary_code">AUX-9348</field>
+            <field name="type">service</field>
+            <field name="list_price">2.00</field>
+            <field name="laundry">1</field>
+            <field name="method_id" ref="method_industrial"/>
+            <field name="tiempo">1</field>
+            <field name="num_prendas_servicio">1</field>
+            <field name="categ_id" ref="product_category_laundry_corporativo"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+
+    </data>
+</odoo>

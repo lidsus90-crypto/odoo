@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vista especial para recepción parcial en Planta -->
+    <record id="view_laundry_recibe_delivery_guide_form" model="ir.ui.view">
+        <field name="name">laundry.delivery.guide.recibe.form</field>
+        <field name="model">laundry.delivery.guide</field>
+        <field name="arch" type="xml">
+            <form string="Recibir Guía de Entrega">
+                <header>
+                    <button name="confirmar" string="Confirmar Recepción"
+                            type="object" class="oe_highlight"
+                            invisible="state != 'send'"/>
+
+                    <button name="recibir" string="Recibir Pendientes"
+                            type="object"
+                            invisible="state != 'partial'"/>
+
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,send,partial,recept"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="codigo_auto"/>
+                        <h1>
+                            <field name="codigo_auto" readonly="True"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="main_info" string="Información de Origen">
+                            <field name="company_id" groups="base.group_multi_company" readonly="True"/>
+                            <field name="planta_id" readonly="True" options="{'no_open': True}"/>
+                            <field name="partner_id" readonly="True" widget="res_partner_many2one"/>
+                        </group>
+                        <group name="delivery_stats" string="Datos de Control">
+                            <field name="fecha_recepcion" readonly="True"/>
+                            <field name="fecha_entrega" readonly="True"/>
+                            <field name="num_prendas_ge" readonly="True" decoration-bf="1"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Líneas de Entrega" name="lines">
+                            <field name="guia_lines" readonly="state == 'recept'">
+                                <list editable="bottom">
+                                    <field name="service_order_id" readonly="True" optional="show"/>
+                                    <field name="service_claim_id" readonly="True" optional="show"/>
+                                    <field name="num_prendas" readonly="True" sum="Total Prendas"/>
+                                    <field name="total" readonly="True" widget="monetary" sum="Total Importe"/>
+                                    <field name="check" widget="boolean_toggle"/>
+                                    <field name="partial" readonly="True" widget="boolean_toggle"/>
+                                    <field name="observacion" placeholder="Notas sobre el estado de la entrega..."/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter reload_on_post="True"/>
+            </form>
+        </field>
+    </record>
+    <record id="action_laundry_recibe_delivery_guide" model="ir.actions.act_window">
+        <field name="name">Recibir Guías de Entrega</field>
+        <field name="res_model">laundry.delivery.guide</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_ids"
+               eval="[(5,0,0),(0,0,{'view_mode':'form','view_id':ref('view_laundry_recibe_delivery_guide_form')})]"/>
+        <field name="domain">[('state','in',['send','partial'])]</field>
+    </record>
+</odoo>

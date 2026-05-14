@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Formulario Guía Despacho -->
+    <record id="view_laundry_dispatch_guide_form" model="ir.ui.view">
+        <field name="name">laundry.dispatch.guide.form</field>
+        <field name="model">laundry.dispatch.guide</field>
+        <field name="arch" type="xml">
+            <form string="Guía de Despacho">
+                <header>
+                    <button name="confirmar_gd_lines" string="Confirmar Despacho"
+                            type="object" class="oe_highlight"
+                            invisible="state != 'draft'"/>
+
+                    <button name="confirmar" string="Confirmar Recepción"
+                            type="object" class="oe_highlight"
+                            invisible="state != 'send'"/>
+
+                    <button name="recibir" string="Recibir Pendientes"
+                            type="object"
+                            invisible="state != 'partial'"/>
+
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,send,partial,recept"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="codigo_auto"/>
+                        <h1>
+                            <field name="codigo_auto" readonly="True"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="location_info" string="Ubicación y Responsable">
+                            <field name="delivery_guide_id" options="{'no_create': True}"
+                                   readonly="state != 'draft'"/>
+                            <field name="planta_id" options="{'no_create': True}"
+                                   readonly="state != 'draft'"/>
+                            <field name="company_id" groups="base.group_multi_company"
+                                   readonly="state != 'draft'"/>
+                            <field name="user_id" widget="many2one_avatar_user"
+                                   readonly="state != 'draft'"/>
+                            <field name="partner_id" widget="res_partner_many2one"
+                                   readonly="state != 'draft'"/>
+                        </group>
+                        <group name="dates_info" string="Fechas y Control">
+                            <field name="codigo_guia_despacho" readonly="state != 'draft'"/>
+                            <field name="fecha_recepcion" readonly="state != 'draft'"/>
+                            <field name="fecha_entrega" readonly="state != 'draft'"/>
+                            <field name="num_prendas_gd" decoration-bf="1"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Líneas de Despacho" name="lines">
+                            <field name="despacho_lines" readonly="state != 'draft'">
+                                <list editable="bottom" decoration-info="partial == True">
+                                    <field name="service_order_id" optional="show"/>
+                                    <field name="service_claim_id" optional="show"/>
+                                    <field name="ge_id"/>
+                                    <field name="company_id" column_invisible="True"/>
+                                    <field name="planta_id" optional="hide"/>
+                                    <field name="num_prendas" sum="Total Prendas"/>
+                                    <field name="total" widget="monetary" sum="Total"/>
+                                    <field name="check" widget="boolean_toggle"/>
+                                    <field name="partial" widget="boolean_toggle"/>
+                                    <field name="observacion"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter reload_on_post="True"/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Kanban -->
+    <record id="view_laundry_dispatch_guide_kanban" model="ir.ui.view">
+        <field name="name">laundry.dispatch.guide.kanban</field>
+        <field name="model">laundry.dispatch.guide</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" class="o_kanban_small_column"
+                    group_create="false" group_delete="false">
+                <field name="state"/>
+                <field name="codigo_auto"/>
+                <field name="partner_id"/>
+                <field name="fecha_recepcion"/>
+                <field name="fecha_entrega"/>
+                <field name="num_prendas_gd"/>
+                <field name="planta_id"/>
+                <field name="activity_ids"/>
+                <field name="activity_state"/>
+                <progressbar field="activity_state"
+                             colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/>
+                <templates>
+                    <t t-name="card">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_record_top">
+                                <div class="o_kanban_record_headings">
+                                    <strong class="o_kanban_record_title">
+                                        <field name="codigo_auto"/>
+                                    </strong>
+                                </div>
+                                <div class="o_kanban_record_top_right">
+                                    <field name="activity_ids" widget="kanban_activity"/>
+                                </div>
+                            </div>
+                            <div class="o_kanban_record_body">
+                                <field name="partner_id"/>
+                                <br/>
+                                <small>Origen: <field name="planta_id"/></small>
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <div class="oe_kanban_bottom_left">
+                                    <span class="badge text-bg-secondary">
+                                        <field name="num_prendas_gd"/> prendas
+                                    </span>
+                                </div>
+                                <div class="oe_kanban_bottom_right">
+                                    <small><field name="fecha_entrega" widget="date"/></small>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Pivot -->
+    <record id="view_laundry_dispatch_guide_pivot" model="ir.ui.view">
+        <field name="name">laundry.dispatch.guide.pivot</field>
+        <field name="model">laundry.dispatch.guide</field>
+        <field name="arch" type="xml">
+            <pivot string="Análisis Guías de Despacho" disable_linking="false">
+                <field name="planta_id" type="row"/>
+                <field name="state" type="col"/>
+                <field name="num_prendas_gd" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Gráfico -->
+    <record id="view_laundry_dispatch_guide_graph" model="ir.ui.view">
+        <field name="name">laundry.dispatch.guide.graph</field>
+        <field name="model">laundry.dispatch.guide</field>
+        <field name="arch" type="xml">
+            <graph string="Guías de Despacho" type="bar">
+                <field name="planta_id" type="row"/>
+                <field name="num_prendas_gd" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Lista -->
+    <record id="view_laundry_dispatch_guide_view_list" model="ir.ui.view">
+        <field name="name">laundry.dispatch.guide.list</field>
+        <field name="model">laundry.dispatch.guide</field>
+        <field name="arch" type="xml">
+            <list string="Guías de Despacho"
+                  sample="1"
+                  multi_edit="1"
+                  decoration-success="state == 'recept'"
+                  decoration-warning="state == 'partial'"
+                  decoration-info="state == 'send'"
+                  decoration-muted="state == 'draft'">
+
+                <field name="codigo_auto" decoration-bf="1"/>
+
+                <field name="planta_id" optional="show"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+                <field name="partner_id" widget="res_partner_many2one"/>
+                <field name="fecha_recepcion" string="Recepción"/>
+                <field name="fecha_entrega" string="Entrega"/>
+                <field name="num_prendas_gd"
+                       string="Total Prendas"
+                       sum="Total Global"
+                       decoration-bf="1"/>
+                <field name="state"
+                       widget="badge"
+                       decoration-success="state == 'recept'"
+                       decoration-warning="state == 'partial'"
+                       decoration-info="state == 'send'"
+                       decoration-muted="state == 'draft'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Acción -->
+    <record id="action_laundry_dispatch_guide" model="ir.actions.act_window">
+        <field name="name">Guías de Despacho</field>
+        <field name="res_model">laundry.dispatch.guide</field>
+        <field name="view_mode">kanban,list,form,pivot,graph</field>
+        <field name="view_ids" eval="[(5,0,0),
+            (0,0,{'view_mode':'kanban','view_id':ref('view_laundry_dispatch_guide_kanban')}),
+            (0,0,{'view_mode':'list',  'view_id':ref('view_laundry_dispatch_guide_view_list')}),
+            (0,0,{'view_mode':'form',  'view_id':ref('view_laundry_dispatch_guide_form')}),
+            (0,0,{'view_mode':'pivot', 'view_id':ref('view_laundry_dispatch_guide_pivot')}),
+            (0,0,{'view_mode':'graph', 'view_id':ref('view_laundry_dispatch_guide_graph')})]"/>
+    </record>
+
+    <menuitem id="menu_laundry_dispatch_guide"
+              name="Guías de Despacho"
+              parent="laundry_management.menu_laundry_root"
+              action="action_laundry_dispatch_guide"
+              sequence="5"/>
+
+</odoo>

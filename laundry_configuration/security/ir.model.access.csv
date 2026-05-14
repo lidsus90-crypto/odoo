@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_laundry_claim_catalogue,laundry.claim.catalogue,model_laundry_claim_catalogue,base.group_user,1,1,1,1
+access_laundry_method_type_catalogue,laundry.method.type.catalogue,model_laundry_method_type_catalogue,base.group_user,1,1,1,1
+access_laundry_method_catalogue,laundry.method.catalogue,model_laundry_method_catalogue,base.group_user,1,1,1,1

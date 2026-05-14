@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="claim_prenda_danada" model="laundry.claim.catalogue">
+            <field name="codigo">RC-001</field>
+            <field name="descripcion_reclamo">Prenda Dañada</field>
+        </record>
+
+        <record id="claim_prenda_manchada" model="laundry.claim.catalogue">
+            <field name="codigo">RC-002</field>
+            <field name="descripcion_reclamo">Prenda Manchada</field>
+        </record>
+
+        <record id="claim_prenda_perdida" model="laundry.claim.catalogue">
+            <field name="codigo">RC-003</field>
+            <field name="descripcion_reclamo">Prenda Perdida</field>
+        </record>
+
+        <record id="claim_lavado_incorrecto" model="laundry.claim.catalogue">
+            <field name="codigo">RC-004</field>
+            <field name="descripcion_reclamo">Lavado Incorrecto</field>
+        </record>
+
+        <record id="claim_entrega_tardia" model="laundry.claim.catalogue">
+            <field name="codigo">RC-005</field>
+            <field name="descripcion_reclamo">Entrega Tardía</field>
+        </record>
+
+        <record id="claim_decoloracion" model="laundry.claim.catalogue">
+            <field name="codigo">RC-006</field>
+            <field name="descripcion_reclamo">Decoloración de Prenda</field>
+        </record>
+
+        <record id="claim_encogimiento" model="laundry.claim.catalogue">
+            <field name="codigo">RC-007</field>
+            <field name="descripcion_reclamo">Encogimiento de Prenda</field>
+        </record>
+
+    </data>
+</odoo>

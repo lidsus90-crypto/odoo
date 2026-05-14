@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"/></head>
+<body style="margin:0;padding:0;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;color:#2c2c3a;background:#f7f9fc;">
+
+<!-- ── Hero ──────────────────────────────────────────────────────── -->
+<div style="background:linear-gradient(135deg,#0d2b5e 0%,#1a4fa8 55%,#00c5d7 100%);padding:36px 32px 32px;border-radius:0 0 8px 8px;">
+    <h1 style="color:#fff;font-size:26px;font-weight:700;margin:0 0 8px;">
+        Laundry EC — Localización Ecuador
+    </h1>
+    <p style="color:#c8eef5;font-size:13px;line-height:1.6;margin:0;">
+        Módulo puente que activa la integración entre el sistema de lavandería y la
+        facturación electrónica SRI.<br/>
+        Desarrollado por <strong style="color:#fff;">LeadSolutions Cia. Ltda.</strong> para Odoo 18.
+    </p>
+</div>
+
+<!-- ── Barra accent ───────────────────────────────────────────────── -->
+<div style="height:4px;background:linear-gradient(90deg,#0d2b5e,#2979d4,#00c5d7,#bf1878);margin-bottom:28px;"></div>
+
+<div style="max-width:900px;margin:0 auto;padding:0 24px 32px;">
+
+    <!-- ── Descripción ─────────────────────────────────────────── -->
+    <h2 style="font-size:16px;font-weight:700;color:#0d2b5e;margin:0 0 14px;padding-bottom:6px;border-bottom:2px solid #00c5d7;">
+        <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#1a4fa8;margin-right:8px;vertical-align:middle;"></span>
+        ¿Qué hace este módulo?
+    </h2>
+    <div style="background:#e0f8fb;border-left:4px solid #00c5d7;border-radius:0 6px 6px 0;padding:18px 22px;margin-bottom:28px;">
+        <p style="font-size:13px;color:#2c2c3a;line-height:1.7;margin:0;">
+            Este es un <strong>módulo puente</strong> (<em>glue module</em>). No contiene modelos ni vistas propios.
+            Su único propósito es declarar la dependencia conjunta entre
+            <strong>Laundry Management</strong> y <strong>l10n_ec_edi</strong>, permitiendo que Odoo
+            active automáticamente la integración con la facturación electrónica del SRI
+            cuando ambos módulos están instalados en la instancia.
+        </p>
+    </div>
+
+    <!-- ── Instalación ─────────────────────────────────────────── -->
+    <h2 style="font-size:16px;font-weight:700;color:#0d2b5e;margin:0 0 14px;padding-bottom:6px;border-bottom:2px solid #00c5d7;">
+        <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#00c5d7;margin-right:8px;vertical-align:middle;"></span>
+        Instalación automática
+    </h2>
+    <p style="font-size:13px;color:#5a607a;line-height:1.7;margin:0 0 16px;">
+        El módulo tiene <code style="background:#f0f4fa;padding:1px 5px;border-radius:3px;font-size:12px;">auto_install: True</code>.
+        Odoo lo activa de forma automática cuando detecta que los siguientes módulos están instalados simultáneamente:
+    </p>
+    <table style="width:100%;border-collapse:collapse;background:#fff;border-radius:6px;box-shadow:0 1px 4px rgba(13,43,94,.1);overflow:hidden;margin-bottom:28px;">
+        <tr style="border-bottom:1px solid #eef1f7;">
+            <td style="padding:12px 18px;width:220px;">
+                <span style="font-family:monospace;font-size:12px;font-weight:700;background:#e0f8fb;color:#0098a8;padding:2px 8px;border-radius:3px;">laundry_management</span>
+            </td>
+            <td style="padding:12px 18px;font-size:13px;color:#5a607a;">Sistema de gestión de órdenes de lavandería (LeadSolutions)</td>
+        </tr>
+        <tr>
+            <td style="padding:12px 18px;">
+                <span style="font-family:monospace;font-size:12px;font-weight:700;background:#fff3cd;color:#856404;padding:2px 8px;border-radius:3px;">l10n_ec_edi</span>
+            </td>
+            <td style="padding:12px 18px;font-size:13px;color:#5a607a;">Localización ecuatoriana — facturación electrónica SRI (Odoo / OCA)</td>
+        </tr>
+    </table>
+
+    <!-- ── Comportamiento por región ──────────────────────────── -->
+    <h2 style="font-size:16px;font-weight:700;color:#0d2b5e;margin:0 0 14px;padding-bottom:6px;border-bottom:2px solid #00c5d7;">
+        <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#bf1878;margin-right:8px;vertical-align:middle;"></span>
+        Comportamiento por región
+    </h2>
+    <table style="width:100%;border-collapse:collapse;background:#fff;border-radius:6px;box-shadow:0 1px 4px rgba(13,43,94,.1);overflow:hidden;margin-bottom:32px;">
+        <tr style="background:#f7f9fc;border-bottom:1px solid #eef1f7;">
+            <th style="padding:10px 18px;text-align:left;font-size:12px;color:#8a90a8;font-weight:600;">Escenario</th>
+            <th style="padding:10px 18px;text-align:left;font-size:12px;color:#8a90a8;font-weight:600;">Resultado</th>
+        </tr>
+        <tr style="border-bottom:1px solid #eef1f7;">
+            <td style="padding:12px 18px;font-size:13px;color:#2c2c3a;">Instancia Ecuador con <code style="background:#f0f4fa;padding:1px 4px;border-radius:3px;font-size:12px;">l10n_ec_edi</code> instalado</td>
+            <td style="padding:12px 18px;font-size:13px;color:#0098a8;font-weight:600;">✔ Se instala automáticamente</td>
+        </tr>
+        <tr>
+            <td style="padding:12px 18px;font-size:13px;color:#2c2c3a;">Instancia fuera de Ecuador (sin <code style="background:#f0f4fa;padding:1px 4px;border-radius:3px;font-size:12px;">l10n_ec_edi</code>)</td>
+            <td style="padding:12px 18px;font-size:13px;color:#8a90a8;">✗ No se instala (no aplica)</td>
+        </tr>
+    </table>
+
+    <!-- ── Footer ───────────────────────────────────────────────── -->
+    <div style="margin-top:36px;padding:16px 24px;background:#0d2b5e;border-radius:6px;font-size:12px;color:#8aaad4;text-align:center;">
+        <strong style="color:#fff;">LeadSolutions Cia. Ltda.</strong>
+        &nbsp;&mdash;&nbsp;
+        <a href="https://lidsus.com/" style="color:#00c5d7;text-decoration:none;">lidsus.com</a>
+        &nbsp;&mdash;&nbsp;
+        <a href="mailto:info@leadsolutions.ec" style="color:#00c5d7;text-decoration:none;">info@leadsolutions.ec</a>
+    </div>
+
+</div>
+</body>
+</html>

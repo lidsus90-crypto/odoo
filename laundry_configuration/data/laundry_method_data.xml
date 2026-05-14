@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="method_normal" model="laundry.method.catalogue">
+            <field name="codigo_mtd">LV-001</field>
+            <field name="descripcion_mtd">Lavado Normal</field>
+        </record>
+
+        <record id="method_delicado" model="laundry.method.catalogue">
+            <field name="codigo_mtd">LV-002</field>
+            <field name="descripcion_mtd">Lavado Delicado</field>
+        </record>
+
+        <record id="method_industrial" model="laundry.method.catalogue">
+            <field name="codigo_mtd">LV-003</field>
+            <field name="descripcion_mtd">Lavado Industrial</field>
+        </record>
+
+        <record id="method_express" model="laundry.method.catalogue">
+            <field name="codigo_mtd">LV-004</field>
+            <field name="descripcion_mtd">Lavado Exprés</field>
+        </record>
+
+        <record id="method_seco" model="laundry.method.catalogue">
+            <field name="codigo_mtd">LV-005</field>
+            <field name="descripcion_mtd">Lavado en Seco</field>
+        </record>
+
+        <record id="method_vapor" model="laundry.method.catalogue">
+            <field name="codigo_mtd">LV-006</field>
+            <field name="descripcion_mtd">Lavado al Vapor</field>
+        </record>
+
+    </data>
+</odoo>

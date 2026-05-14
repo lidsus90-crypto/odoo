@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ============================================================
+         Herencia: product.template - Campos de Lavandería
+    ============================================================ -->
+    <record id="product_add_form" model="ir.ui.view">
+        <field name="name">product.template.laundry.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Lavandería" name="laundry_page">
+                    <group>
+                        <field name="laundry"/>
+                        <field name="method_id"
+                               invisible="not laundry"/>
+                        <field name="tiempo"
+                               invisible="not laundry"/>
+                        <field name="num_prendas_servicio"
+                               invisible="not laundry"/>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <!-- Herencia: product.category -->
+    <record id="laundry_category_form" model="ir.ui.view">
+        <field name="name">product.category.laundry.form</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='parent_id']" position="before">
+                <group>
+                    <field name="isservicetype"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- ============================================================
+         Catálogo: Tipo de Método (Bandera Lavado)
+    ============================================================ -->
+    <record id="view_laundry_method_type_catalogue_form" model="ir.ui.view">
+        <field name="name">laundry.method.type.catalogue.form</field>
+        <field name="model">laundry.method.type.catalogue</field>
+        <field name="arch" type="xml">
+            <form string="Bandera Lavado">
+                <sheet>
+                    <group>
+                        <field name="codigo"/>
+                        <field name="descripcion_tipo_metodo"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_laundry_method_type_tree" model="ir.ui.view">
+        <field name="name">laundry.method.type.catalogue.tree</field>
+        <field name="model">laundry.method.type.catalogue</field>
+        <field name="arch" type="xml">
+            <list string="Bandera Lavado">
+                <field name="codigo"/>
+                <field name="descripcion_tipo_metodo"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_laundry_method_type_catalogue_view_form" model="ir.actions.act_window">
+        <field name="name">Bandera Lavado</field>
+        <field name="res_model">laundry.method.type.catalogue</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ============================================================
+         Catálogo: Método de Lavado
+    ============================================================ -->
+    <record id="view_laundry_method_catalogue_form" model="ir.ui.view">
+        <field name="name">laundry.method.catalogue.form</field>
+        <field name="model">laundry.method.catalogue</field>
+        <field name="arch" type="xml">
+            <form string="Método Lavado">
+                <sheet>
+                    <group>
+                        <field name="codigo_mtd"/>
+                        <field name="descripcion_mtd"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_laundry_method_catalogue_tree" model="ir.ui.view">
+        <field name="name">laundry.method.catalogue.tree</field>
+        <field name="model">laundry.method.catalogue</field>
+        <field name="arch" type="xml">
+            <list string="Método Lavado">
+                <field name="codigo_mtd"/>
+                <field name="descripcion_mtd"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_laundry_method_catalogue_view_form" model="ir.actions.act_window">
+        <field name="name">Método Lavado</field>
+        <field name="res_model">laundry.method.catalogue</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ============================================================
+         Catálogo: Tipo de Reclamo
+    ============================================================ -->
+    <record id="view_laundry_claim_catalogue_form" model="ir.ui.view">
+        <field name="name">laundry.claim.catalogue.form</field>
+        <field name="model">laundry.claim.catalogue</field>
+        <field name="arch" type="xml">
+            <form string="Tipo Reclamo">
+                <sheet>
+                    <group>
+                        <field name="codigo"/>
+                        <field name="descripcion_reclamo"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_laundry_claim_catalogue_tree" model="ir.ui.view">
+        <field name="name">laundry.claim.catalogue.tree</field>
+        <field name="model">laundry.claim.catalogue</field>
+        <field name="arch" type="xml">
+            <list string="Tipo Reclamo">
+                <field name="codigo"/>
+                <field name="descripcion_reclamo"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_laundry_claim_catalogue_view_form" model="ir.actions.act_window">
+        <field name="name">Tipo Reclamo</field>
+        <field name="res_model">laundry.claim.catalogue</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ============================================================
+         Menús
+    ============================================================ -->
+    <menuitem id="menu_laundry_config_root"
+              name="Configuración Lavandería"
+              parent="stock.menu_stock_config_settings"
+              sequence="20"/>
+
+    <menuitem name="Método Lavado"
+              id="menu_action_laundry_method_catalogue"
+              action="action_laundry_method_catalogue_view_form"
+              parent="menu_laundry_config_root"
+              sequence="9"/>
+
+    <menuitem name="Bandera Lavado"
+              id="menu_action_laundry_method_type_catalogue"
+              action="action_laundry_method_type_catalogue_view_form"
+              parent="menu_laundry_config_root"
+              sequence="10"/>
+
+    <menuitem name="Tipo Reclamo"
+              id="menu_action_laundry_claim_catalogue_view_form"
+              action="action_laundry_claim_catalogue_view_form"
+              parent="menu_laundry_config_root"
+              sequence="11"/>
+
+</odoo>
