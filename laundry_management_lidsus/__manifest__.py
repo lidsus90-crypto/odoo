@@ -6,7 +6,7 @@
     "author": "LeadSolutions Cia. Ltda.",
     "website": "https://lidsus.com/",
     "support": "info@leadsolutions.ec",
-    "license": "LGPL-2.1",
+    "license": "AGPL-3",
     "price": 0,
     "currency": "USD",
     'summary': 'Gestión de órdenes de servicio de lavandería',

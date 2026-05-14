@@ -5,7 +5,7 @@
     "author": "LeadSolutions Cia. Ltda.",
     "website": "https://lidsus.com/",
     "support": "info@leadsolutions.ec",
-    "license": "LGPL-2.1",
+    "license": "AGPL-3",
     'category': 'Services/Laundry',
     'summary': 'Módulo instalador global del sistema de lavandería ecuatoriana',
     'depends': [

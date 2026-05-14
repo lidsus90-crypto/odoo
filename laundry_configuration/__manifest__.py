@@ -6,7 +6,7 @@
     "author": "LeadSolutions Cia. Ltda.",
     "website": "https://lidsus.com/",
     "support": "info@leadsolutions.ec",
-    "license": "LGPL-3",
+    "license": "AGPL-3",
     "price": 0,
     "currency": "USD",
     'summary': 'Configuración de catálogos para módulo de lavandería',
