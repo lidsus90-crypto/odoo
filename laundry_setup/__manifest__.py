@@ -5,12 +5,12 @@
     "author": "LeadSolutions Cia. Ltda.",
     "website": "https://lidsus.com/",
     "support": "info@leadsolutions.ec",
-    "license": "LGPL-3",
+    "license": "LGPL-2.1",
     'category': 'Services/Laundry',
     'summary': 'Módulo instalador global del sistema de lavandería ecuatoriana',
     'depends': [
         'laundry_configuration',
-        'laundry_management',
+        'laundry_management_lidsus',
     ],
     'data': [
         'data/laundry_setup_data.xml',

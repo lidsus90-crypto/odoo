@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Laundry Management',
+    'name': 'Laundry Management - LeadSolutions',
     "version": '18.0.1.0.0',
     "category": 'Services/Laundry',
     "author": "LeadSolutions Cia. Ltda.",
     "website": "https://lidsus.com/",
     "support": "info@leadsolutions.ec",
-    "license": "LGPL-3",
+    "license": "LGPL-2.1",
     "price": 0,
     "currency": "USD",
     'summary': 'Gestión de órdenes de servicio de lavandería',
