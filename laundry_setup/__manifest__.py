@@ -7,7 +7,7 @@
     "support": "info@leadsolutions.ec",
     "license": "AGPL-3",
     'category': 'Services/Laundry',
-    'summary': 'Installer module for the Ecuadorian laundry management system',
+    'summary': 'Installer module for laundry management system',
     'depends': [
         'laundry_configuration',
         'laundry_management_lidsus',
