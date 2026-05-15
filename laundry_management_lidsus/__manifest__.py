@@ -33,6 +33,7 @@
         'wizard/laundry_make_invoice_view.xml',
     ],
     'images': [
+        'static/description/laundry_ec.png',
         'static/description/icon.png',
         'static/description/cover.png',
     ],

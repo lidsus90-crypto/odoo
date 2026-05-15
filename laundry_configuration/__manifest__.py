@@ -26,6 +26,7 @@
         'views/laundry_config_view.xml',
     ],
     'images': [
+        'static/description/laundry_ec.png',
         'static/description/icon.png',
         'static/description/cover.png',
     ],
