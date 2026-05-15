@@ -1,101 +1,95 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head><meta charset="UTF-8"/></head>
 <body style="margin:0;padding:0;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;color:#2c2c3a;background:#f7f9fc;">
 
 <!-- ── Hero ──────────────────────────────────────────────────────── -->
 <div style="background:linear-gradient(135deg,#0d2b5e 0%,#1a4fa8 55%,#00c5d7 100%);padding:36px 32px 32px;border-radius:0 0 8px 8px;">
     <h1 style="color:#fff;font-size:26px;font-weight:700;margin:0 0 8px;">
-        Laundry Management — Sistema de Gestión de Órdenes
+        Laundry Management
     </h1>
     <p style="color:#c8eef5;font-size:13px;line-height:1.6;margin:0;">
-        Módulo de gestión completa para órdenes de servicio de lavandería con flujo de estados, 
-        guías de entrega/despacho, reclamos y facturación integrada.<br/>
-        Desarrollado por <strong style="color:#fff;">LeadSolutions Cia. Ltda.</strong> para Odoo 18.
+        Full service order management for laundry operations, including order flow, delivery and dispatch guides, claims, and integrated invoicing.<br/>
+        Developed by <strong style="color:#fff;">LeadSolutions Cia. Ltda.</strong> for Odoo 18.
     </p>
 </div>
 
-<!-- ── Barra accent ───────────────────────────────────────────────── -->
+<!-- ── Accent bar ───────────────────────────────────────────────── -->
 <div style="height:4px;background:linear-gradient(90deg,#0d2b5e,#2979d4,#00c5d7,#bf1878);margin-bottom:28px;"></div>
 
 <div style="max-width:900px;margin:0 auto;padding:0 24px 32px;">
 
-    <!-- ── Órdenes de Servicio ─────────────────────────────────── -->
+    <!-- ── Service Orders ─────────────────────────────────────── -->
     <h2 style="font-size:16px;font-weight:700;color:#0d2b5e;margin:0 0 14px;padding-bottom:6px;border-bottom:2px solid #00c5d7;">
         <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#1a4fa8;margin-right:8px;vertical-align:middle;"></span>
-        Órdenes de Servicio
+        Service Orders
     </h2>
     <div style="padding:0 0 24px;">
         <p style="font-size:13px;color:#5a607a;line-height:1.7;margin:0 0 12px;">
-            Registro completo de órdenes de servicio con control de prendas por tipo, color, 
-            método de lavado y cantidad. Secuencial automático por compañía.
+            Complete service order registration with garment tracking by type, color, washing method, and quantity. Automatic sequence numbering per company.
         </p>
         <ul style="margin:0;padding-left:16px;font-size:13px;color:#5a607a;line-height:1.9;">
-            <li>Flujo de 7 estados: Recibido → Enviado → En Proceso → En Tránsito → Listo → Entregado / Reclamo</li>
-            <li>Campos bloqueados automáticamente en estados distintos a <em>Recibido</em></li>
-            <li>Generación de factura de venta desde la propia orden</li>
-            <li>Dirección de entrega seleccionable entre todas las ubicaciones del cliente</li>
-            <li>Vistas: formulario, lista, kanban, pivot y gráfico</li>
+            <li>7-step workflow: Received → Sent → In Process → In Transit → Ready → Delivered / Claim</li>
+            <li>Fields locked automatically outside the Received state</li>
+            <li>Invoice creation directly from the order</li>
+            <li>Delivery address selection from customer locations</li>
+            <li>Form, list, kanban, pivot, and graph views</li>
         </ul>
     </div>
 
-    <!-- ── Guías ──────────────────────────────────────────────── -->
+    <!-- ── Delivery and Dispatch Guides ───────────────────────────────── -->
     <h2 style="font-size:16px;font-weight:700;color:#0d2b5e;margin:0 0 14px;padding-bottom:6px;border-bottom:2px solid #00c5d7;">
         <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#00c5d7;margin-right:8px;vertical-align:middle;"></span>
-        Guías de Entrega y Despacho
+        Delivery and Dispatch Guides
     </h2>
     <div style="padding:0 0 24px;">
         <p style="font-size:13px;color:#5a607a;line-height:1.7;margin:0 0 12px;">
-            Generación automática de guías de entrega (cliente) y despacho (interno) con reportes 
-            impresos y trazabilidad completa del movimiento de prendas.
+            Automatic generation of customer delivery guides and internal dispatch guides with full traceability of garment movement.
         </p>
         <ul style="margin:0;padding-left:16px;font-size:13px;color:#5a607a;line-height:1.9;">
-            <li>Guía de Entrega - Documento para cliente con detalle de prendas</li>
-            <li>Guía de Despacho - Documento interno con instrucciones de lavado</li>
-            <li>Secuencial automático por serie y compañía</li>
-            <li>Reportes impresos personalizados</li>
-            <li>Confirmación de recepción de guías</li>
+            <li>Customer delivery guide with garment details</li>
+            <li>Internal dispatch guide with washing instructions</li>
+            <li>Automatic sequence numbering by series and company</li>
+            <li>Printable custom report templates</li>
+            <li>Receipt confirmation tracking</li>
         </ul>
     </div>
 
-    <!-- ── Reclamos ────────────────────────────────────────────– -->
+    <!-- ── Claims Management ───────────────────────────────── -->
     <h2 style="font-size:16px;font-weight:700;color:#0d2b5e;margin:0 0 14px;padding-bottom:6px;border-bottom:2px solid #00c5d7;">
         <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#bf1878;margin-right:8px;vertical-align:middle;"></span>
-        Gestión de Reclamos
+        Claims Management
     </h2>
     <div style="padding:0 0 24px;">
         <p style="font-size:13px;color:#5a607a;line-height:1.7;margin:0 0 12px;">
-            Registro y seguimiento de reclamos por prendas dañadas, perdidas o con defectos, 
-            vinculados directamente a órdenes de servicio.
+            Track damaged, lost or defective garments with detailed claim lines linked directly to service orders.
         </p>
         <ul style="margin:0;padding-left:16px;font-size:13px;color:#5a607a;line-height:1.9;">
-            <li>Tipos de reclamo configurables</li>
-            <li>Líneas de detalle por prenda reclamada</li>
-            <li>Flujo de estados para seguimiento</li>
-            <li>Vinculación automática con órdenes de servicio</li>
+            <li>Configurable claim types</li>
+            <li>Claim line details for each garment</li>
+            <li>Full claim state workflow</li>
+            <li>Automatic linkage with service orders</li>
         </ul>
     </div>
 
-    <!-- ── Reportes ───────────────────────────────────────────── -->
+    <!-- ── Reports and Analysis ───────────────────────────────── -->
     <h2 style="font-size:16px;font-weight:700;color:#0d2b5e;margin:0 0 14px;padding-bottom:6px;border-bottom:2px solid #00c5d7;">
         <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#0098a8;margin-right:8px;vertical-align:middle;"></span>
-        Análisis y Reportes
+        Reports and Analysis
     </h2>
     <div style="padding:0 0 24px;">
         <ul style="margin:0;padding-left:16px;font-size:13px;color:#5a607a;line-height:1.9;">
-            <li>Vistas Pivot: análisis cruzado por cliente, estado, planta</li>
-            <li>Gráficos de barras y análisis de tendencias</li>
-            <li>Totales facturados y prendas procesadas</li>
-            <li>Exportable a Excel</li>
+            <li>Pivot views for cross analysis by customer, state and plant</li>
+            <li>Bar charts and trend analysis</li>
+            <li>Totals for invoiced amounts and processed garments</li>
+            <li>Excel export support</li>
         </ul>
     </div>
 
-    <!-- ── Nota ────────────────────────────────────────────────── -->
+    <!-- ── Note ────────────────────────────────────────────────── -->
     <div style="background:#f0f7ff;border-left:4px solid #1a4fa8;padding:16px;border-radius:4px;margin-top:24px;">
         <p style="font-size:12px;color:#0d2b5e;margin:0;">
-            <strong>Nota:</strong> Este módulo requiere <strong>Laundry Configuration</strong> como dependencia base. 
-            Se recomienda instalar <strong>Laundry — Sistema de Gestión de Lavandería (Setup)</strong> 
-            que incluye automáticamente este módulo con toda la configuración completa.
+            <strong>Note:</strong> This module requires <strong>Laundry Configuration</strong> as a base dependency. It is recommended to install <strong>Laundry Setup</strong> to include this module and the full laundry management experience.
         </p>
     </div>
 

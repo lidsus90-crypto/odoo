@@ -9,7 +9,7 @@
     "license": "AGPL-3",
     "price": 0,
     "currency": "USD",
-    'summary': 'Configuración de catálogos para módulo de lavandería',
+    'summary': 'Catalog configuration for the laundry application',
     'depends': ['base',
                 'stock',
                 'product',

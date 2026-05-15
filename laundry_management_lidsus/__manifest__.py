@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Laundry Management - LeadSolutions',
+    'name': 'Laundry Management',
     "version": '18.0.1.0.0',
     "category": 'Services/Laundry',
     "author": "LeadSolutions Cia. Ltda.",
@@ -9,7 +9,7 @@
     "license": "AGPL-3",
     "price": 0,
     "currency": "USD",
-    'summary': 'Gestión de órdenes de servicio de lavandería',
+    'summary': 'Service order management for laundry operations',
     'depends': [
         'laundry_configuration',
     ],

@@ -271,7 +271,7 @@
 
     <menuitem id="menu_laundry_claims"
               name="Reclamos"
-              parent="laundry_management.menu_laundry_root"
+              parent="laundry_management_lidsus.menu_laundry_root"
               action="action_laundry_claim"
               sequence="3"/>
 

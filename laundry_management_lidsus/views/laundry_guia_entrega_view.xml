@@ -195,7 +195,7 @@
 
     <menuitem id="menu_laundry_delivery_guide"
               name="Guías de Entrega"
-              parent="laundry_management.menu_laundry_root"
+              parent="laundry_management_lidsus.menu_laundry_root"
               action="action_laundry_delivery_guide"
               sequence="4"/>
 

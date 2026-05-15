@@ -294,7 +294,7 @@
     <menuitem id="menu_laundry_root"
               name="Lavandería"
               sequence="50"
-              web_icon="laundry_management,static/description/icon.png"/>
+              web_icon="laundry_management_lidsus,static/description/icon.png"/>
 
     <menuitem id="menu_laundry_orders"
               name="Órdenes de Servicio"

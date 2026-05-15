@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Laundry - Setup',
+    'name': 'Laundry Setup',
     'version': '18.0.1.0.0',
     "author": "LeadSolutions Cia. Ltda.",
     "website": "https://lidsus.com/",
     "support": "info@leadsolutions.ec",
     "license": "AGPL-3",
     'category': 'Services/Laundry',
-    'summary': 'Módulo instalador global del sistema de lavandería ecuatoriana',
+    'summary': 'Installer module for the Ecuadorian laundry management system',
     'depends': [
         'laundry_configuration',
         'laundry_management_lidsus',

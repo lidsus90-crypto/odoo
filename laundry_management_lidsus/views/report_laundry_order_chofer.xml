@@ -4,8 +4,8 @@
         <field name="name">Orden de Servicio (Chófer)</field>
         <field name="model">laundry.management</field>
         <field name="report_type">qweb-pdf</field>
-        <field name="report_name">laundry_management.report_laundry_order_chofer_doc</field>
-        <field name="report_file">laundry_management.report_laundry_order_chofer_doc</field>
+        <field name="report_name">laundry_management_lidsus.report_laundry_order_chofer_doc</field>
+        <field name="report_file">laundry_management_lidsus.report_laundry_order_chofer_doc</field>
         <field name="binding_model_id" ref="model_laundry_management"/>
         <field name="binding_type">report</field>
     </record>
