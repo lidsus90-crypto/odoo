@@ -20,6 +20,7 @@
     ],
     'images': [
         'static/description/laundry_ec.png',
+        'static/description/laundry_ec_dashboard.png',
         'static/description/service_order.png',
         'static/description/laundry_ec_1.png',
         'static/description/delivery_guide.png',
