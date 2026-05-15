@@ -18,6 +18,12 @@
 <!-- ── Accent bar ───────────────────────────────────────────────── -->
 <div style="height:5px;background:linear-gradient(90deg,#0d2b5e,#2979d4,#00c5d7,#bf1878);"></div>
 
+<!-- ── Cover image ──────────────────────────────────────────────── -->
+<div style="max-width:1000px;margin:0 auto;padding:32px 32px 0;">
+    <img src="laundry_ec.png" alt="Laundry EC Cover"
+         style="width:100%;border-radius:8px;box-shadow:0 4px 16px rgba(13,43,94,.18);border:1px solid #dde8f8;"/>
+</div>
+
 <div style="max-width:1000px;margin:0 auto;padding:40px 32px;background:#ffffff;">
 
     <!-- ── Service Orders ─────────────────────────────────────── -->
@@ -50,10 +56,6 @@
         Dashboard and Kanban
     </h2>
     <div style="display:flex;flex-wrap:wrap;gap:20px;margin-bottom:32px;align-items:flex-start;">
-        <div style="flex:1 1 320px;">
-            <img src="laundry_ec.png" alt="Laundry Dashboard"
-                 style="width:100%;border-radius:6px;box-shadow:0 2px 8px rgba(13,43,94,.15);border:1px solid #dde8f8;"/>
-        </div>
         <div style="flex:1 1 280px;">
             <p style="font-size:14px;color:#333333;line-height:1.8;margin:0 0 14px;font-weight:500;">
                 Order dashboard with kanban grouped by stage, pending activities indicators, and invoice status badges on each card.
@@ -65,6 +67,10 @@
                 <li>Activity logging: calls, tasks, emails, meetings</li>
                 <li>Available in Orders, Claims, Delivery Guides and Dispatch Guides</li>
             </ul>
+        </div>
+        <div style="flex:1 1 320px;">
+            <img src="laundry_ec_1.png" alt="Laundry Dashboard"
+                 style="width:100%;border-radius:6px;box-shadow:0 2px 8px rgba(13,43,94,.15);border:1px solid #dde8f8;"/>
         </div>
     </div>
 
@@ -123,108 +129,6 @@
         </p>
     </div>
 
-</div>
-
-</body>
-</html>
-
-    <!-- ── Guía de Despacho ────────────────────────────────────── -->
-    <h2 style="font-size:16px;font-weight:700;color:#0d2b5e;margin:0 0 14px;padding-bottom:6px;border-bottom:2px solid #00c5d7;">
-        <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#2979d4;margin-right:8px;vertical-align:middle;"></span>
-        Guías de Despacho
-    </h2>
-    <div style="display:flex;flex-wrap:wrap;gap:20px;margin-bottom:32px;align-items:flex-start;">
-        <div style="flex:1 1 280px;">
-            <p style="font-size:13px;color:#5a607a;line-height:1.7;margin:0 0 12px;">
-                Seguimiento del despacho de prendas hacia la planta de lavado.
-                Generada automáticamente desde la Guía de Entrega al confirmar el envío.
-            </p>
-            <ul style="margin:0;padding-left:16px;font-size:12.5px;color:#5a607a;line-height:1.9;">
-                <li>Creación automática al validar la Guía de Entrega</li>
-                <li>Control de recepción en planta: total o parcial</li>
-                <li>Al marcar como Recibido actualiza automáticamente la orden a <em>Entregado</em></li>
-                <li>Campos bloqueados en estados distintos a <em>Borrador</em></li>
-                <li>Vistas kanban, pivot y gráfico incluidas</li>
-            </ul>
-        </div>
-        <div style="flex:1 1 320px;">
-            <img src="dispatch_guide.png" alt="Guía de Despacho"
-                 style="width:100%;border-radius:6px;box-shadow:0 2px 8px rgba(13,43,94,.15);border:1px solid #dde8f8;"/>
-        </div>
-    </div>
-
-    <!-- ── Flujo ─────────────────────────────────────────────────── -->
-    <h2 style="font-size:16px;font-weight:700;color:#0d2b5e;margin:0 0 14px;padding-bottom:6px;border-bottom:2px solid #00c5d7;">
-        <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#bf1878;margin-right:8px;vertical-align:middle;"></span>
-        Flujo de trabajo
-    </h2>
-
-    <div style="background:#e0f8fb;border-left:4px solid #00c5d7;border-radius:0 6px 6px 0;padding:18px 22px;margin-bottom:32px;">
-        <table style="width:100%;border-collapse:collapse;">
-            <tr style="border-bottom:1px dashed #b2e8ef;">
-                <td style="padding:7px 0;font-size:13px;width:110px;"><strong style="color:#0d2b5e;">Recibido</strong></td>
-                <td style="padding:7px 0;font-size:13px;color:#5a607a;">Se registra la orden con las prendas del cliente y la dirección de entrega</td>
-            </tr>
-            <tr style="border-bottom:1px dashed #b2e8ef;">
-                <td style="padding:7px 0;font-size:13px;"><strong style="color:#0d2b5e;">Enviado</strong></td>
-                <td style="padding:7px 0;font-size:13px;color:#5a607a;">Se genera la guía de entrega y automáticamente la guía de despacho hacia la planta</td>
-            </tr>
-            <tr style="border-bottom:1px dashed #b2e8ef;">
-                <td style="padding:7px 0;font-size:13px;"><strong style="color:#0d2b5e;">En Proceso</strong></td>
-                <td style="padding:7px 0;font-size:13px;color:#5a607a;">La planta confirma recepción y procesa el lavado</td>
-            </tr>
-            <tr style="border-bottom:1px dashed #b2e8ef;">
-                <td style="padding:7px 0;font-size:13px;"><strong style="color:#0d2b5e;">En Tránsito</strong></td>
-                <td style="padding:7px 0;font-size:13px;color:#5a607a;">Las prendas regresan al punto de entrega</td>
-            </tr>
-            <tr style="border-bottom:1px dashed #b2e8ef;">
-                <td style="padding:7px 0;font-size:13px;"><strong style="color:#0d2b5e;">Listo</strong></td>
-                <td style="padding:7px 0;font-size:13px;color:#5a607a;">Prendas disponibles para entrega al cliente</td>
-            </tr>
-            <tr style="border-bottom:1px dashed #b2e8ef;">
-                <td style="padding:7px 0;font-size:13px;"><strong style="color:#0d2b5e;">Entregado</strong></td>
-                <td style="padding:7px 0;font-size:13px;color:#5a607a;">Orden cerrada automáticamente cuando ambas guías están en estado Recibido</td>
-            </tr>
-            <tr>
-                <td style="padding:7px 0;font-size:13px;"><strong style="color:#bf1878;">Reclamo</strong></td>
-                <td style="padding:7px 0;font-size:13px;color:#5a607a;">Gestión de inconformidades con seguimiento dedicado, actividades y resolución</td>
-            </tr>
-        </table>
-    </div>
-
-    <!-- ── Módulos ───────────────────────────────────────────────── -->
-    <h2 style="font-size:16px;font-weight:700;color:#0d2b5e;margin:0 0 14px;padding-bottom:6px;border-bottom:2px solid #00c5d7;">
-        <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#bf1878;margin-right:8px;vertical-align:middle;"></span>
-        Módulos incluidos
-    </h2>
-
-    <table style="width:100%;border-collapse:collapse;background:#fff;border-radius:6px;box-shadow:0 1px 4px rgba(13,43,94,.1);overflow:hidden;margin-bottom:32px;">
-        <tr style="border-bottom:1px solid #eef1f7;">
-            <td style="padding:12px 18px;width:210px;">
-                <span style="font-family:monospace;font-size:12px;font-weight:700;background:#dde8f8;color:#1a4fa8;padding:2px 8px;border-radius:3px;">laundry_configuration</span>
-            </td>
-            <td style="padding:12px 18px;font-size:13px;color:#5a607a;">Catálogos base: métodos de lavado, tipos, categorías de producto</td>
-        </tr>
-        <tr style="border-bottom:1px solid #eef1f7;">
-            <td style="padding:12px 18px;">
-                <span style="font-family:monospace;font-size:12px;font-weight:700;background:#e0f8fb;color:#0098a8;padding:2px 8px;border-radius:3px;">laundry_management</span>
-            </td>
-            <td style="padding:12px 18px;font-size:13px;color:#5a607a;">Órdenes de servicio, guías de despacho/entrega, reclamos y facturación</td>
-        </tr>
-        <tr style="border-bottom:1px solid #eef1f7;">
-            <td style="padding:12px 18px;">
-                <span style="font-family:monospace;font-size:12px;font-weight:700;background:#fce4f1;color:#bf1878;padding:2px 8px;border-radius:3px;">laundry_setup</span>
-            </td>
-            <td style="padding:12px 18px;font-size:13px;color:#5a607a;">Instalador global que unifica los módulos en una sola instalación</td>
-        </tr>
-        <tr>
-            <td style="padding:12px 18px;">
-                <span style="font-family:monospace;font-size:12px;font-weight:700;background:#fff3cd;color:#856404;padding:2px 8px;border-radius:3px;">laundry_ec_l10n_ec</span>
-            </td>
-            <td style="padding:12px 18px;font-size:13px;color:#5a607a;">Puente con la localización ecuatoriana (l10n_ec_edi). Se instala automáticamente cuando ambos módulos están presentes.</td>
-        </tr>
-    </table>
-
     <!-- ── Footer ───────────────────────────────────────────────── -->
     <div style="margin-top:36px;padding:16px 24px;background:#0d2b5e;border-radius:6px;font-size:12px;color:#8aaad4;text-align:center;">
         <strong style="color:#fff;">LeadSolutions Cia. Ltda.</strong>
@@ -235,5 +139,6 @@
     </div>
 
 </div>
+
 </body>
 </html>

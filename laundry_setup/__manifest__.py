@@ -19,8 +19,8 @@
         'demo/demo_data.xml',
     ],
     'images': [
-        'static/description/service_order.png',
         'static/description/laundry_ec.png',
+        'static/description/service_order.png',
         'static/description/laundry_ec_1.png',
         'static/description/delivery_guide.png',
         'static/description/dispatch_guide.png',
