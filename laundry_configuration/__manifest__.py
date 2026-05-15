@@ -25,6 +25,9 @@
         'data/product_data.xml',
         'views/laundry_config_view.xml',
     ],
+    'images': [
+        'static/description/icon.png',
+    ],
     'installable': True,
     'auto_install': False,
     'application': False,

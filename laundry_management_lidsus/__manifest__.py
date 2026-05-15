@@ -32,6 +32,9 @@
         'views/report_laundry_claim.xml',
         'wizard/laundry_make_invoice_view.xml',
     ],
+    'images': [
+        'static/description/icon.png',
+    ],
     'installable': True,
     'auto_install': False,
     'application': False,
