@@ -34,6 +34,7 @@
     ],
     'images': [
         'static/description/icon.png',
+        'static/description/cover.png',
     ],
     'installable': True,
     'auto_install': False,
